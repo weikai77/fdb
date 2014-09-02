@@ -54,14 +54,13 @@ public class DistributedConditionTestIT
         {
           try
           {
-            Thread.sleep(200);
+            Thread.sleep(100);
             cond2.signalAll();
           }
           catch (InterruptedException ex) {}
         }
       }).start();
   
-      Assert.assertFalse(cond1.await(100, TimeUnit.MILLISECONDS));
       Assert.assertTrue(cond1.await(500, TimeUnit.MILLISECONDS));
       Assert.assertFalse(cond1.await(100, TimeUnit.MILLISECONDS));
       Assert.assertFalse(cond2.await(100, TimeUnit.MILLISECONDS));
