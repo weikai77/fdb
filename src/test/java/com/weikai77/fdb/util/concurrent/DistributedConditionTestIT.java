@@ -62,7 +62,7 @@ public class DistributedConditionTestIT
       }).start();
   
       Assert.assertFalse(cond1.await(100, TimeUnit.MILLISECONDS));
-      Assert.assertTrue(cond1.await(200, TimeUnit.MILLISECONDS));
+      Assert.assertTrue(cond1.await(500, TimeUnit.MILLISECONDS));
       Assert.assertFalse(cond1.await(100, TimeUnit.MILLISECONDS));
       Assert.assertFalse(cond2.await(100, TimeUnit.MILLISECONDS));
   

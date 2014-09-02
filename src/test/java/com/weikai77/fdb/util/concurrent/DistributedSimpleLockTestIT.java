@@ -208,12 +208,12 @@ public class DistributedSimpleLockTestIT
       Assert.assertFalse(lock1.hasLock());
 
       // lock1 can lock now
-      Assert.assertTrue(lock1.tryAcquire(200));
+      Assert.assertTrue(lock1.tryAcquire(500));
       Assert.assertTrue(lock1.hasLock());
       Assert.assertFalse(lock2.hasLock());
 
       // lock1 locked #2 (with TTL)
-      Assert.assertTrue(lock1.tryAcquire(100, 100));
+      Assert.assertTrue(lock1.tryAcquire(100, 200));
 
       // lock2 can't lock
       Assert.assertFalse(lock2.tryAcquire());
@@ -221,7 +221,7 @@ public class DistributedSimpleLockTestIT
       Assert.assertFalse(lock2.hasLock());
       
       // lock2 can lock after lock1 expires
-      Thread.sleep(150);
+      Thread.sleep(300);
       Assert.assertTrue(lock2.tryAcquire());
       Assert.assertFalse(lock1.hasLock());
       Assert.assertTrue(lock2.hasLock());
