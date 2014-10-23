@@ -118,6 +118,7 @@ public class GroupKeyMapperTestIT
         while (mapper.size() == 5) {}
         Assert.assertEquals("node6", mapper.map("key1"));
         Assert.assertEquals("node3", mapper.map("key2"));
+
         /**
          * (node3, 0) -> -1796370422
          * (node4, 0) -> -1322416027
