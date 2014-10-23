@@ -19,7 +19,8 @@ public class ConsistentKeyMapper<K,N> implements KeyMapper<K, N>
 
   /**
    * @param nodes nodes to be placed on the hashing ring
-   * @param hasher the hash function to use
+   * @param keyHasher the hash function to use on the keys
+   * @param nodeHasher the hash function to use on the nodes
    * @param replicationFactor number of virtual nodes each node is assigned to
    */
   public ConsistentKeyMapper(Collection<N> nodes, Hasher<K> keyHasher, Hasher<N> nodeHasher, 
